@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping("/condominios")
 public class CondominioController {
 
     @Autowired
     private ICondominioService dS;
-    @PatchMapping
+    @PostMapping
     public void registrar(@RequestBody CondominioDTO dto){
         ModelMapper m = new ModelMapper();
         Condominio d = m.map(dto, Condominio.class);
