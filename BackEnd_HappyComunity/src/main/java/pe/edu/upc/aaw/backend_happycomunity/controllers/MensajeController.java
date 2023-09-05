@@ -18,7 +18,7 @@ public class MensajeController {
 
     @Autowired
     private IMensajeService mS;
-    @PatchMapping
+    @PostMapping
     public void registrar(@RequestBody MensajeDTO dto){
         ModelMapper m = new ModelMapper();
         Mensaje e = m.map(dto, Mensaje.class);

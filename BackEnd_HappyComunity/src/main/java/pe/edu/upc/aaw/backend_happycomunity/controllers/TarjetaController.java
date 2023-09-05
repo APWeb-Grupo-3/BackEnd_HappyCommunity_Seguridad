@@ -16,7 +16,7 @@ public class TarjetaController {
 
     @Autowired
     private ITarjetaService tS;
-    @PatchMapping
+    @PostMapping
     public void registrar(@RequestBody TarjetaDTO dto){
         ModelMapper m = new ModelMapper();
         Tarjeta t = m.map(dto, Tarjeta.class);
