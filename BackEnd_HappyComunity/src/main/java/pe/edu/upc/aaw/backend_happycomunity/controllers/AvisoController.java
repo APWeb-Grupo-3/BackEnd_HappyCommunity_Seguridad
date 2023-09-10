@@ -18,7 +18,7 @@ public class AvisoController {
 
     @Autowired
     private IAvisoService aS;
-    @PatchMapping
+    @PostMapping
     public void registrar(@RequestBody AvisoDTO dto){
         ModelMapper m = new ModelMapper();
         Aviso d = m.map(dto, Aviso.class);
@@ -39,7 +39,7 @@ public class AvisoController {
         aS.delete(id);
     }
     @PutMapping
-    public void modificar(@RequestBody TarjetaDTO dto) {
+    public void modificar(@RequestBody AvisoDTO dto) {
         ModelMapper m = new ModelMapper();
         Aviso a = m.map(dto, Aviso.class);
         aS.insert(a);

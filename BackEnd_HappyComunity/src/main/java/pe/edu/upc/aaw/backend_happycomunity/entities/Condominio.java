@@ -17,8 +17,6 @@ public class Condominio {
     @Column(name = "addressCondominio",nullable = false,length = 45)
     private String addressCondominio;
 
-
-
     public Condominio(int idCondominio, String nameCondominio, String regionCondominio, String districtCondominio, String addressCondominio) {
         this.idCondominio = idCondominio;
         this.nameCondominio = nameCondominio;

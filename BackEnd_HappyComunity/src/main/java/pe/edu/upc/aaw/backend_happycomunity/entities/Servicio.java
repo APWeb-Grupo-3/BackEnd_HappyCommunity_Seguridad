@@ -10,23 +10,22 @@ public class Servicio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idServicio;
 
-    @Column(name="descripcionServicio", nullable = false)
+    @Column(name="descripcionServicio", nullable = false, length = 300)
     private String descripcionServicio;
 
 
     @ManyToOne
     @JoinColumn(name ="idTipoServicio")
-    private Condominio idtiposervicio;
-
-
+    private TipoServicio tipoServicio;
 
     public Servicio() {
     }
 
-    public Servicio(int idServicio, String descripcionServicio, Condominio idtiposervicio) {
+
+    public Servicio(int idServicio, String descripcionServicio, TipoServicio tipoServicio) {
         this.idServicio = idServicio;
         this.descripcionServicio = descripcionServicio;
-        this.idtiposervicio = idtiposervicio;
+        this.tipoServicio = tipoServicio;
     }
 
 
@@ -46,11 +45,11 @@ public class Servicio {
         this.descripcionServicio = descripcionServicio;
     }
 
-    public Condominio getIdtiposervicio() {
-        return idtiposervicio;
+    public TipoServicio getTipoServicio() {
+        return tipoServicio;
     }
 
-    public void setIdtiposervicio(Condominio idtiposervicio) {
-        this.idtiposervicio = idtiposervicio;
+    public void setTipoServicio(TipoServicio tipoServicio) {
+        this.tipoServicio = tipoServicio;
     }
 }

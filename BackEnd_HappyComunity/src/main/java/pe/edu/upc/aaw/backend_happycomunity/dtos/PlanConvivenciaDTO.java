@@ -7,6 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 public class PlanConvivenciaDTO {
+    private int idPlanConvivencia;
+    private String titulo;
+    private String descripcion;
+    private Condominio condominio;
     public int getIdPlanConvivencia() {
         return idPlanConvivencia;
     }
@@ -39,8 +43,5 @@ public class PlanConvivenciaDTO {
         this.condominio = condominio;
     }
 
-    private int idPlanConvivencia;
-    private String titulo;
-    private String descripcion;
-    private Condominio condominio;
+
 }

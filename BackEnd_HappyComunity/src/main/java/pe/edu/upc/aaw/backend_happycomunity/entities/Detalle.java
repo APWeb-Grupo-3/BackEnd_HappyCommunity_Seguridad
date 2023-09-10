@@ -6,34 +6,25 @@ import javax.persistence.*;
 @Table(name= "Detalle")
 public class Detalle {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDetalle;
 
     @Column(name="subtotalDetalle", nullable = false)
-    private String subtotaldetalle;
+    private String subtotalDetalle;
 
     @ManyToOne
     @JoinColumn(name ="idDocumentoPago")
-    private Condominio iddocumentopago;
-
-
+    private DocumentoPago documentoPago;
 
     @ManyToOne
     @JoinColumn(name ="idServicio")
-    private Condominio idservicio;
+    private Servicio servicio;
 
 
     public Detalle() {
     }
 
-    public Detalle(int idDetalle, String subtotaldetalle, Condominio iddocumentopago, Condominio idservicio) {
-        this.idDetalle = idDetalle;
-        this.subtotaldetalle = subtotaldetalle;
-        this.iddocumentopago = iddocumentopago;
-        this.idservicio = idservicio;
-    }
 
     public int getIdDetalle() {
         return idDetalle;
@@ -43,28 +34,28 @@ public class Detalle {
         this.idDetalle = idDetalle;
     }
 
-    public String getSubtotaldetalle() {
-        return subtotaldetalle;
+    public String getSubtotalDetalle() {
+        return subtotalDetalle;
     }
 
-    public void setSubtotaldetalle(String subtotaldetalle) {
-        this.subtotaldetalle = subtotaldetalle;
+    public void setSubtotalDetalle(String subtotalDetalle) {
+        this.subtotalDetalle = subtotalDetalle;
     }
 
-    public Condominio getIddocumentopago() {
-        return iddocumentopago;
+    public DocumentoPago getDocumentoPago() {
+        return documentoPago;
     }
 
-    public void setIddocumentopago(Condominio iddocumentopago) {
-        this.iddocumentopago = iddocumentopago;
+    public void setDocumentoPago(DocumentoPago documentoPago) {
+        this.documentoPago = documentoPago;
     }
 
-    public Condominio getIdservicio() {
-        return idservicio;
+    public Servicio getServicio() {
+        return servicio;
     }
 
-    public void setIdservicio(Condominio idservicio) {
-        this.idservicio = idservicio;
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
     }
 }
 

@@ -14,18 +14,38 @@ public class Mensaje {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "usuario")
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
+    @Column(name="idReceptor",nullable = false)
+    private int idReceptor;
 
-    public Mensaje() {
-    }
 
-    public Mensaje(int idMensaje, String titulo, String descripcion, Usuario usuario) {
+
+    public Mensaje(int idMensaje, String titulo, String descripcion, Usuario usuario, int idReceptor) {
         this.idMensaje = idMensaje;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.usuario = usuario;
+        this.idReceptor = idReceptor;
     }
+    public Mensaje() {
+    }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getIdReceptor() {
+        return idReceptor;
+    }
+
+    public void setIdReceptor(int idReceptor) {
+        this.idReceptor = idReceptor;
+    }
+
 
     public int getIdMensaje() {
         return idMensaje;
@@ -51,11 +71,5 @@ public class Mensaje {
         this.descripcion = descripcion;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }

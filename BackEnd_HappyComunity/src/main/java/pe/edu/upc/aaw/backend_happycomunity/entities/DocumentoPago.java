@@ -10,12 +10,12 @@ public class DocumentoPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDocumentoPago;
-    @Column(name = "remitente_id",nullable = false)
-    private int remitente_id;
-    @Column(name = "fecha_emision",nullable = false)
-    private LocalDate fecha_emision;
-    @Column(name = "fecha_vencimeinto",nullable = false)
-    private LocalDate fecha_vencimiento;
+    @Column(name = "idReceptor",nullable = false)
+    private int idReceptor;
+    @Column(name = "fechaEmision",nullable = false)
+    private LocalDate fechaEmision;
+    @Column(name = "fechaVencimeinto",nullable = false)
+    private LocalDate fechaVencimiento;
     @Column(name = "moneda",length = 100,nullable = false)
     private String moneda;
     //total int->double
@@ -29,21 +29,45 @@ public class DocumentoPago {
     private Usuario usuario;
     @ManyToOne
     @JoinColumn(name = "idTipoDocPago")
-    private TipoDocPago tipodocpago;
+    private TipoDocPago tipoDocPago;
 
     public DocumentoPago() {
     }
 
-    public DocumentoPago(int idDocumentoPago, int remitente_id, LocalDate fecha_emision, LocalDate fecha_vencimiento, String moneda, double total, String estado, Usuario usuario, TipoDocPago tipodocpago) {
+    public DocumentoPago(int idDocumentoPago, int idReceptor, LocalDate fechaEmision, LocalDate fechaVencimiento, String moneda, double total, String estado, Usuario usuario, TipoDocPago tipoDocPago) {
         this.idDocumentoPago = idDocumentoPago;
-        this.remitente_id = remitente_id;
-        this.fecha_emision = fecha_emision;
-        this.fecha_vencimiento = fecha_vencimiento;
+        this.idReceptor = idReceptor;
+        this.fechaEmision = fechaEmision;
+        this.fechaVencimiento = fechaVencimiento;
         this.moneda = moneda;
         this.total = total;
         this.estado = estado;
         this.usuario = usuario;
-        this.tipodocpago = tipodocpago;
+        this.tipoDocPago = tipoDocPago;
+    }
+
+    public int getIdReceptor() {
+        return idReceptor;
+    }
+
+    public void setIdReceptor(int idReceptor) {
+        this.idReceptor = idReceptor;
+    }
+
+    public LocalDate getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public void setFechaEmision(LocalDate fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    public LocalDate getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
     }
 
     public int getIdDocumentoPago() {
@@ -52,30 +76,6 @@ public class DocumentoPago {
 
     public void setIdDocumentoPago(int idDocumentoPago) {
         this.idDocumentoPago = idDocumentoPago;
-    }
-
-    public int getRemitente_id() {
-        return remitente_id;
-    }
-
-    public void setRemitente_id(int remitente_id) {
-        this.remitente_id = remitente_id;
-    }
-
-    public LocalDate getFecha_emision() {
-        return fecha_emision;
-    }
-
-    public void setFecha_emision(LocalDate fecha_emision) {
-        this.fecha_emision = fecha_emision;
-    }
-
-    public LocalDate getFecha_vencimiento() {
-        return fecha_vencimiento;
-    }
-
-    public void setFecha_vencimiento(LocalDate fecha_vencimiento) {
-        this.fecha_vencimiento = fecha_vencimiento;
     }
 
     public String getMoneda() {
@@ -110,11 +110,11 @@ public class DocumentoPago {
         this.usuario = usuario;
     }
 
-    public TipoDocPago getTipodocpago() {
-        return tipodocpago;
+    public TipoDocPago getTipoDocPago() {
+        return tipoDocPago;
     }
 
-    public void setTipodocpago(TipoDocPago tipodocpago) {
-        this.tipodocpago = tipodocpago;
+    public void setTipoDocPago(TipoDocPago tipodocpago) {
+        this.tipoDocPago = tipodocpago;
     }
 }
