@@ -5,11 +5,19 @@ import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 
 public class MensajeDTO {
 
-
     private int idMensaje;
     private String titulo;
     private String descripcion;
     private Usuario usuario;
+    private int idReceptor;
+
+    public int getIdReceptor() {
+        return idReceptor;
+    }
+
+    public void setIdReceptor(int idReceptor) {
+        this.idReceptor = idReceptor;
+    }
 
     public int getIdMensaje() {
         return idMensaje;

@@ -16,9 +16,6 @@ public class DetalleServiceInterface implements IDetalleService {
     @Autowired
     private IDetalleRepository detR;
 
-
-
-
     @Override
     public void insert(Detalle detalle) {
         detR.save(detalle);

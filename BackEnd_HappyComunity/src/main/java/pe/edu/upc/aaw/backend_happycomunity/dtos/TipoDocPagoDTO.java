@@ -6,6 +6,7 @@ public class TipoDocPagoDTO {
     private int idTipoDocPago;
     private String nombre;
 
+
     public int getIdTipoDocPago() {
         return idTipoDocPago;
     }

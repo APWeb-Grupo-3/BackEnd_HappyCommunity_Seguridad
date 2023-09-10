@@ -7,23 +7,23 @@ public class Aviso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAviso;
-    @Column(name = "titutlo",length = 50,nullable = false)
-    private String titutlo;
+    @Column(name = "titulo",length = 50,nullable = false)
+    private String titulo;
     @Column(name = "descripcion",length = 200,nullable = false)
     private String descripcion;
     @ManyToOne
     @JoinColumn(name = "usuario")
     private Usuario usuario;
     @ManyToOne
-    @JoinColumn(name = "condominio")
+    @JoinColumn(name = "idCondominio")
     private Condominio condominio;
 
     public Aviso() {
     }
 
-    public Aviso(int idAviso, String titutlo, String descripcion, Usuario usuario, Condominio condominio) {
+    public Aviso(int idAviso, String titulo, String descripcion, Usuario usuario, Condominio condominio) {
         this.idAviso = idAviso;
-        this.titutlo = titutlo;
+        this.titulo = titulo;
         this.descripcion = descripcion;
         this.usuario = usuario;
         this.condominio = condominio;
@@ -38,11 +38,15 @@ public class Aviso {
     }
 
     public String getTitutlo() {
-        return titutlo;
+        return titulo;
     }
 
-    public void setTitutlo(String titutlo) {
-        this.titutlo = titutlo;
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titutlo) {
+        this.titulo = titutlo;
     }
 
     public String getDescripcion() {

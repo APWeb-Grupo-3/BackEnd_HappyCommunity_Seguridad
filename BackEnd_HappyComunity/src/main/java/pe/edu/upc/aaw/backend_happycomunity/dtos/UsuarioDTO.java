@@ -11,22 +11,8 @@ public class UsuarioDTO {
     private int edad;
     private int telefono;
     private String genero;
-    private TipoUsuario tipousuario;
+    private TipoUsuario tipoUsuario;
 
-    public UsuarioDTO() {
-    }
-
-    public UsuarioDTO(int idUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, TipoUsuario tipousuario) {
-        this.idUsuario = idUsuario;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.clave = clave;
-        this.edad = edad;
-        this.telefono = telefono;
-        this.genero = genero;
-        this.tipousuario = tipousuario;
-    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -92,11 +78,11 @@ public class UsuarioDTO {
         this.genero = genero;
     }
 
-    public TipoUsuario getTipousuario() {
-        return tipousuario;
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setTipousuario(TipoUsuario tipousuario) {
-        this.tipousuario = tipousuario;
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 }

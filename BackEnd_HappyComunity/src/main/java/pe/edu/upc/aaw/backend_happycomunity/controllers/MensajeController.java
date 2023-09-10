@@ -13,7 +13,7 @@ import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.ITarjetaService;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
-@RequestMapping("/mensaje")
+@RequestMapping("/mensajes")
 public class MensajeController {
 
     @Autowired

@@ -6,7 +6,7 @@ import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 public class AvisoDTO {
 
     private int idAviso;
-    private String titutlo;
+    private String titulo;
     private String descripcion;
     private Usuario usuario;
     private Condominio condominio;
@@ -19,12 +19,12 @@ public class AvisoDTO {
         this.idAviso = idAviso;
     }
 
-    public String getTitutlo() {
-        return titutlo;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitutlo(String titutlo) {
-        this.titutlo = titutlo;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescripcion() {

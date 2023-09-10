@@ -1,11 +1,12 @@
 package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
+import pe.edu.upc.aaw.backend_happycomunity.entities.Condominio;
 import pe.edu.upc.aaw.backend_happycomunity.entities.TipoServicio;
 
 public class ServicioDTO {
 
 private int idServicio;
-private int descripcionServicio;
+private String descripcionServicio;
 
 private TipoServicio tipoServicio;
 
@@ -18,11 +19,11 @@ private TipoServicio tipoServicio;
         this.idServicio = idServicio;
     }
 
-    public int getDescripcionServicio() {
+    public String getDescripcionServicio() {
         return descripcionServicio;
     }
 
-    public void setDescripcionServicio(int descripcionServicio) {
+    public void setDescripcionServicio(String descripcionServicio) {
         this.descripcionServicio = descripcionServicio;
     }
 

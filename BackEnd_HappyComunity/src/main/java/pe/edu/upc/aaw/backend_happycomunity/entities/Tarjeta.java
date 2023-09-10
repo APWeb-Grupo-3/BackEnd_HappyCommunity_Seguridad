@@ -8,7 +8,6 @@ public class Tarjeta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTarjeta;
-
     @Column(name = "tipoTarjeta", length = 50, nullable = false)
     private String tipoTarjeta;
     @Column(name = "numeroTarjeta", nullable = false)
@@ -19,14 +18,14 @@ public class Tarjeta {
     private int codigoSeguridad;
 
     @ManyToOne
-    @JoinColumn(name = "usuario")
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
     public Tarjeta() {
     }
 
     public Tarjeta(int idTarjeta, String tipoTarjeta, int numeroTarjeta, LocalDate fechaVencimiento, int codigoSeguridad, Usuario usuario) {
-        idTarjeta = idTarjeta;
+        this.idTarjeta = idTarjeta;
         this.tipoTarjeta = tipoTarjeta;
         this.numeroTarjeta = numeroTarjeta;
         this.fechaVencimiento = fechaVencimiento;
@@ -39,7 +38,7 @@ public class Tarjeta {
     }
 
     public void setIdTarjeta(int idTarjeta) {
-        idTarjeta = idTarjeta;
+        this.idTarjeta = idTarjeta;
     }
 
     public String getTipoTarjeta() {

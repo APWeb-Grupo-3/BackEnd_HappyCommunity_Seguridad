@@ -8,15 +8,12 @@ public class TipoUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTipoUsuario;
-    @Column(name = "nombre",length = 100,nullable = false)
-    private String nombre;
+    @Column(name = "nombreTipo",length = 150,nullable = false)
+    private String nombreTipo;
     @Column(name = "descripcion",length = 400,nullable = true)
     private String descripcion;
 
-    public TipoUsuario(int idTipoUsuario, String nombre, String descripcion) {
-        this.idTipoUsuario = idTipoUsuario;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    public TipoUsuario() {
     }
 
     public int getIdTipoUsuario() {
@@ -27,19 +24,12 @@ public class TipoUsuario {
         this.idTipoUsuario = idTipoUsuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreTipo() {
+        return nombreTipo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-
-
-
-    public TipoUsuario() {
-
+    public void setNombreTipo(String nombreTipo) {
+        this.nombreTipo = nombreTipo;
     }
 
     public String getDescripcion() {
@@ -49,5 +39,4 @@ public class TipoUsuario {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
 }

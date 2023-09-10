@@ -9,13 +9,11 @@ public class DetalleDTO {
 
 
     private int idDetalle;
-    private int subtotaldetalle;
+    private int subtotalDetalle;
 
     private DocumentoPago documentoPago;
 
-
     private Servicio servicio;
-
 
     public int getIdDetalle() {
         return idDetalle;
@@ -25,12 +23,12 @@ public class DetalleDTO {
         this.idDetalle = idDetalle;
     }
 
-    public int getSubtotaldetalle() {
-        return subtotaldetalle;
+    public int getSubtotalDetalle() {
+        return subtotalDetalle;
     }
 
-    public void setSubtotaldetalle(int subtotaldetalle) {
-        this.subtotaldetalle = subtotaldetalle;
+    public void setSubtotalDetalle(int subtotalDetalle) {
+        this.subtotalDetalle = subtotalDetalle;
     }
 
     public DocumentoPago getDocumentoPago() {

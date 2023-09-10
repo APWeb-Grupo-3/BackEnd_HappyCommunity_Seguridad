@@ -2,21 +2,24 @@ package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
 import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 
+import javax.persistence.Column;
 import java.time.LocalDate;
 
 public class TarjetaDTO {
-
     private int idTarjeta;
-
     private String tipoTarjeta;
-
     private int numeroTarjeta;
-
     private LocalDate fechaVencimiento;
-
     private int codigoSeguridad;
-
     private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public int getIdTarjeta() {
         return idTarjeta;
@@ -56,13 +59,5 @@ public class TarjetaDTO {
 
     public void setCodigoSeguridad(int codigoSeguridad) {
         this.codigoSeguridad = codigoSeguridad;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 }

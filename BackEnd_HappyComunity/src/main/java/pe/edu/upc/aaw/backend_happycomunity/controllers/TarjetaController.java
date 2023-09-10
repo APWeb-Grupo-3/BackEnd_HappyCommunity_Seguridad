@@ -37,7 +37,7 @@ public class TarjetaController {
         tS.delete(id);
     }
     @PutMapping
-    public void modificar(@RequestBody TarjetaDTO dto) {
+    public void modificar(@RequestBody TarjetaDTO dto){
         ModelMapper m = new ModelMapper();
         Tarjeta t = m.map(dto, Tarjeta.class);
         tS.insert(t);

@@ -19,7 +19,7 @@ public class TipoUsuarioController {
     @PostMapping
     public void registrar(@RequestBody TipoUsuarioDTO dto){
         ModelMapper m=new ModelMapper();
-        TipoUsuario tu=m.map(dto,TipoUsuario.class);
+        TipoUsuario tu=m.map(dto, TipoUsuario.class);
         tuS.insert(tu);
     }
     @GetMapping
@@ -36,7 +36,7 @@ public class TipoUsuarioController {
     @PutMapping
     public void modificar(@RequestBody TipoUsuarioDTO dto){
         ModelMapper m=new ModelMapper();
-        TipoUsuario tu=m.map(dto,TipoUsuario.class);
+        TipoUsuario tu=m.map(dto, TipoUsuario.class);
         tuS.insert(tu);
     }
 }

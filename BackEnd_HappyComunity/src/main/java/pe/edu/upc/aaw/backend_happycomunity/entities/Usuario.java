@@ -24,12 +24,12 @@ public class Usuario {
     private String genero;
     @ManyToOne
     @JoinColumn(name = "idTipoUsuario")
-    private TipoUsuario tipousuario;
+    private TipoUsuario tipoUsuario;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, TipoUsuario tipousuario) {
+    public Usuario(int idUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, TipoUsuario tipoUsuario) {
         this.idUsuario = idUsuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -38,15 +38,15 @@ public class Usuario {
         this.edad = edad;
         this.telefono = telefono;
         this.genero = genero;
-        this.tipousuario = tipousuario;
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public TipoUsuario getTipousuario() {
-        return tipousuario;
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setTipousuario(TipoUsuario tipousuario) {
-        this.tipousuario = tipousuario;
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public int getIdUsuario() {
