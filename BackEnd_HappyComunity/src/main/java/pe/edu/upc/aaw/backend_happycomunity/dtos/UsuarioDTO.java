@@ -1,6 +1,6 @@
 package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
-import pe.edu.upc.aaw.backend_happycomunity.entities.TipoUsuario;
+import pe.edu.upc.aaw.backend_happycomunity.entities.RolUsuario;
 
 public class UsuarioDTO {
     private int idUsuario;
@@ -11,7 +11,7 @@ public class UsuarioDTO {
     private int edad;
     private int telefono;
     private String genero;
-    private TipoUsuario tipoUsuario;
+    private RolUsuario tipoUsuario;
 
 
     public int getIdUsuario() {
@@ -78,11 +78,11 @@ public class UsuarioDTO {
         this.genero = genero;
     }
 
-    public TipoUsuario getTipoUsuario() {
+    public RolUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+    public void setTipoUsuario(RolUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 }
