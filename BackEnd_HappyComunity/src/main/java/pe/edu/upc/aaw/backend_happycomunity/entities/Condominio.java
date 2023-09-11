@@ -8,25 +8,24 @@ public class Condominio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCondominio;
-    @Column(name = "nameCondominio",nullable = false,length = 45)
-    private String nameCondominio;
-    @Column(name = "regionCondominio",nullable = false,length = 25)
-    private String regionCondominio;
-    @Column(name = "districtCondominio",nullable = false,length = 25)
-    private String districtCondominio;
-    @Column(name = "addressCondominio",nullable = false,length = 45)
-    private String addressCondominio;
-
-    public Condominio(int idCondominio, String nameCondominio, String regionCondominio, String districtCondominio, String addressCondominio) {
-        this.idCondominio = idCondominio;
-        this.nameCondominio = nameCondominio;
-        this.regionCondominio = regionCondominio;
-        this.districtCondominio = districtCondominio;
-        this.addressCondominio = addressCondominio;
-    }
+    @Column(name = "nombre",nullable = false,length = 45)
+    private String nombre;
+    @Column(name = "departamento",nullable = false,length = 25)
+    private String departamento;
+    @Column(name = "distrito",nullable = false,length = 25)
+    private String distrito;
+    @Column(name = "direccion",nullable = false,length = 45)
+    private String direccion;
 
     public Condominio() {
+    }
 
+    public Condominio(int idCondominio, String nombre, String departamento, String distrito, String direccion) {
+        this.idCondominio = idCondominio;
+        this.nombre = nombre;
+        this.departamento = departamento;
+        this.distrito = distrito;
+        this.direccion = direccion;
     }
 
     public int getIdCondominio() {
@@ -37,37 +36,35 @@ public class Condominio {
         this.idCondominio = idCondominio;
     }
 
-    public String getNameCondominio() {
-        return nameCondominio;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNameCondominio(String nameCondominio) {
-        this.nameCondominio = nameCondominio;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getRegionCondominio() {
-        return regionCondominio;
+    public String getDepartamento() {
+        return departamento;
     }
 
-    public void setRegionCondominio(String regionCondominio) {
-        this.regionCondominio = regionCondominio;
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
-    public String getDistrictCondominio() {
-        return districtCondominio;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setDistrictCondominio(String districtCondominio) {
-        this.districtCondominio = districtCondominio;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
     }
 
-    public String getAddressCondominio() {
-        return addressCondominio;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setAddressCondominio(String addressCondominio) {
-        this.addressCondominio = addressCondominio;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-
-
 }
