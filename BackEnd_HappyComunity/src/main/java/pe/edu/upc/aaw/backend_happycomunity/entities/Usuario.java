@@ -1,16 +1,14 @@
 package pe.edu.upc.aaw.backend_happycomunity.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
-public class Usuario implements Serializable { //public class Usuario {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //private int idUsuario;
-    private Long idUsuario;//
+    private int idUsuario;
     @Column(name = "nombres",length = 300,nullable = false)
     private String nombres;
     @Column(name = "apellidos",length = 400,nullable = false)
@@ -25,21 +23,13 @@ public class Usuario implements Serializable { //public class Usuario {
     private int telefono;
     @Column(name = "genero",nullable = false)
     private String genero;
-
-    //private Boolean enabled; no esta en nuestra tabla
-    /*
     @ManyToOne
     @JoinColumn(name = "idTipoUsuario")
-    private RolUsuario tipoUsuario;
-*/
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)//
-    @JoinColumn(name = "idUsuario")//
-    private List<RolUsuario> rolUsuarios;//
-
+    private TipoUsuario tipoUsuario;
     public Usuario() {
     }
 
-    public Usuario(Long idUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, List<RolUsuario> rolUsuarios) {
+    public Usuario(int idUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, TipoUsuario tipoUsuario) {
         this.idUsuario = idUsuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -48,15 +38,23 @@ public class Usuario implements Serializable { //public class Usuario {
         this.edad = edad;
         this.telefono = telefono;
         this.genero = genero;
-        this.rolUsuarios = rolUsuarios;
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public Long getIdUsuario() {
+    public int getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
+    public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public String getNombres() {
@@ -115,11 +113,4 @@ public class Usuario implements Serializable { //public class Usuario {
         this.genero = genero;
     }
 
-    public List<RolUsuario> getRolUsuarios() {
-        return rolUsuarios;
-    }
-
-    public void setRolUsuarios(List<RolUsuario> rolUsuarios) {
-        this.rolUsuarios = rolUsuarios;
-    }
 }
