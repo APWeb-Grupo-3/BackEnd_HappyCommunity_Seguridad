@@ -22,4 +22,9 @@ public class SolicitudAccesoServiceImplement implements ISolicitudAccesoSevice {
     public List<SolicitudAcceso> list(){
         return sR.findAll();
     }
+
+    @Override
+    public void delete(int idSolicitudAcceso) {
+        sR.deleteById(idSolicitudAcceso);
+    }
 }
