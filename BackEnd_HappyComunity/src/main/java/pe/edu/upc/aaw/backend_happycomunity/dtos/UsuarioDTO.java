@@ -1,19 +1,27 @@
 package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
-import pe.edu.upc.aaw.backend_happycomunity.entities.TipoUsuario;
+import pe.edu.upc.aaw.backend_happycomunity.entities.RolUsuario;
 
 public class UsuarioDTO {
     private int idUsuario;
+    private String nombreUsuario;
     private String nombres;
     private String apellidos;
+    private String genero;
+
     private String correo;
     private String clave;
     private int edad;
     private int telefono;
-    private String genero;
+    private RolUsuario rolUsuario;
 
-    private TipoUsuario tipoUsuario;
+    public String getGenero() {
+        return genero;
+    }
 
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -21,6 +29,14 @@ public class UsuarioDTO {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getNombres() {
@@ -71,19 +87,11 @@ public class UsuarioDTO {
         this.telefono = telefono;
     }
 
-    public String getGenero() {
-        return genero;
+    public RolUsuario getRolUsuario() {
+        return rolUsuario;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setRolUsuario(RolUsuario rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
 }

@@ -1,7 +1,6 @@
 package pe.edu.upc.aaw.backend_happycomunity.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
@@ -9,6 +8,8 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
+    @Column(name = "nombreUsuario",length = 300,nullable = false)
+    private String nombreUsuario;
     @Column(name = "nombres",length = 300,nullable = false)
     private String nombres;
     @Column(name = "apellidos",length = 400,nullable = false)
@@ -24,13 +25,14 @@ public class Usuario {
     @Column(name = "genero",nullable = false)
     private String genero;
     @ManyToOne
-    @JoinColumn(name = "idTipoUsuario")
-    private TipoUsuario tipoUsuario;
+    @JoinColumn(name = "idRolUsuario")
+    private RolUsuario rolUsuario;
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, TipoUsuario tipoUsuario) {
+    public Usuario(int idUsuario, String nombreUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, RolUsuario rolUsuario) {
         this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
@@ -38,7 +40,23 @@ public class Usuario {
         this.edad = edad;
         this.telefono = telefono;
         this.genero = genero;
-        this.tipoUsuario = tipoUsuario;
+        this.rolUsuario = rolUsuario;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public RolUsuario getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(RolUsuario rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
 
     public int getIdUsuario() {
@@ -49,13 +67,6 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
 
     public String getNombres() {
         return nombres;

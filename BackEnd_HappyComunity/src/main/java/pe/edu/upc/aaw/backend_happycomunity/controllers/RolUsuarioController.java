@@ -3,30 +3,30 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.backend_happycomunity.dtos.TipoUsuarioDTO;
-import pe.edu.upc.aaw.backend_happycomunity.entities.TipoUsuario;
-import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.ITipoUsuarioService;
+import pe.edu.upc.aaw.backend_happycomunity.dtos.RolUsuarioDTO;
+import pe.edu.upc.aaw.backend_happycomunity.entities.RolUsuario;
+import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.IRolUsuarioService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/tipousuarios")
-public class TipoUsuarioController {
+@RequestMapping("/rolusuarios")
+public class RolUsuarioController {
     @Autowired
-    private ITipoUsuarioService ruS;
+    private IRolUsuarioService ruS;
 
     @PostMapping
-    public void registrar(@RequestBody TipoUsuarioDTO dto){
+    public void registrar(@RequestBody RolUsuarioDTO dto){
         ModelMapper m=new ModelMapper();
-        TipoUsuario tu=m.map(dto, TipoUsuario.class);
+        RolUsuario tu=m.map(dto, RolUsuario.class);
         ruS.insert(tu);
     }
     @GetMapping
-    public List<TipoUsuarioDTO>listar(){
+    public List<RolUsuarioDTO>listar(){
         return ruS.list().stream().map(x->{
                 ModelMapper m=new ModelMapper();
-                return m.map(x, TipoUsuarioDTO.class);
+                return m.map(x, RolUsuarioDTO.class);
             }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
@@ -34,9 +34,9 @@ public class TipoUsuarioController {
         ruS.delete(id);
     }
     @PutMapping
-    public void modificar(@RequestBody TipoUsuarioDTO dto){
+    public void modificar(@RequestBody RolUsuarioDTO dto){
         ModelMapper m=new ModelMapper();
-        TipoUsuario tu=m.map(dto, TipoUsuario.class);
+        RolUsuario tu=m.map(dto, RolUsuario.class);
         ruS.insert(tu);
     }
 }
