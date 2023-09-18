@@ -1,36 +1,35 @@
 package pe.edu.upc.aaw.backend_happycomunity.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "TipoUsuario")
-public class TipoUsuario {
+@Table(name = "RolUsuario")
+public class RolUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTipoUsuario;
+    private int idRolUsuario;
 
     @Column(name = "nombreTipo",length = 150,nullable = false)
     private String nombreTipo;
     @Column(name = "descripcion",length = 400,nullable = true)
     private String descripcion;
 
-    public TipoUsuario() {
+    public RolUsuario() {
     }
 
-    public TipoUsuario(int idTipoUsuario, String nombreTipo, String descripcion) {
-        this.idTipoUsuario = idTipoUsuario;
+    public RolUsuario(int idRolUsuario, String nombreTipo, String descripcion) {
+        this.idRolUsuario = idRolUsuario;
         this.nombreTipo = nombreTipo;
         this.descripcion = descripcion;
     }
 
-    public int getIdTipoUsuario() {
-        return idTipoUsuario;
+    public int getIdRolUsuario() {
+        return idRolUsuario;
     }
 
-    public void setIdTipoUsuario(int idTipoUsuario) {
-        this.idTipoUsuario = idTipoUsuario;
+    public void setIdRolUsuario(int idRolUsuario) {
+        this.idRolUsuario = idRolUsuario;
     }
 
     public String getNombreTipo() {

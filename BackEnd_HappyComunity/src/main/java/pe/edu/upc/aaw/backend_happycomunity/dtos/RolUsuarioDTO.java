@@ -1,19 +1,21 @@
 package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
 
-public class TipoUsuarioDTO {
+import javax.persistence.Column;
 
-    private int idTipoUsuario;
+public class RolUsuarioDTO {
+
+    private int idRolUsuario;
 
     private String nombreTipo;
     private String descripcion;
 
-    public int getIdTipoUsuario() {
-        return idTipoUsuario;
+    public int getIdRolUsuario() {
+        return idRolUsuario;
     }
 
-    public void setIdTipoUsuario(int idTipoUsuario) {
-        this.idTipoUsuario = idTipoUsuario;
+    public void setIdRolUsuario(int idRolUsuario) {
+        this.idRolUsuario = idRolUsuario;
     }
 
     public String getNombreTipo() {
