@@ -13,7 +13,7 @@ import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.ITarjetaService;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
-@RequestMapping("/aviso")
+@RequestMapping("/avisos")
 public class AvisoController {
 
     @Autowired
@@ -44,14 +44,5 @@ public class AvisoController {
         Aviso a = m.map(dto, Aviso.class);
         aS.insert(a);
     }
-
-
-
-
-
-
-
-
-
 
 }

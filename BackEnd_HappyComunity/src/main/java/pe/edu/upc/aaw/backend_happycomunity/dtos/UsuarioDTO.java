@@ -1,33 +1,28 @@
 package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
 import pe.edu.upc.aaw.backend_happycomunity.entities.RolUsuario;
+import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
+
+import javax.persistence.*;
+import java.util.List;
 
 public class UsuarioDTO {
-    private int idUsuario;
+    private Long idUsuario;
     private String nombreUsuario;
+    private String clave;
+    private Boolean habilitado;
     private String nombres;
     private String apellidos;
+    private String correo;
+    private int edad;
+    private Long telefono;
     private String genero;
 
-    private String correo;
-    private String clave;
-    private int edad;
-    private int telefono;
-    private RolUsuario rolUsuario;
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -37,6 +32,22 @@ public class UsuarioDTO {
 
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public Boolean getHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(Boolean habilitado) {
+        this.habilitado = habilitado;
     }
 
     public String getNombres() {
@@ -63,14 +74,6 @@ public class UsuarioDTO {
         this.correo = correo;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public int getEdad() {
         return edad;
     }
@@ -79,19 +82,19 @@ public class UsuarioDTO {
         this.edad = edad;
     }
 
-    public int getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
-    public RolUsuario getRolUsuario() {
-        return rolUsuario;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setRolUsuario(RolUsuario rolUsuario) {
-        this.rolUsuario = rolUsuario;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }

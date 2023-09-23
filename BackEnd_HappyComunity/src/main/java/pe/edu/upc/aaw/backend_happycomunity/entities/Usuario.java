@@ -1,46 +1,61 @@
 package pe.edu.upc.aaw.backend_happycomunity.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
-    @Column(name = "nombreUsuario",length = 300,nullable = false)
+    private Long idUsuario;
+    @Column(length = 30, unique = true)
     private String nombreUsuario;
-    @Column(name = "nombres",length = 300,nullable = false)
-    private String nombres;
-    @Column(name = "apellidos",length = 400,nullable = false)
-    private String apellidos;
-    @Column(name = "correo",length = 400,nullable = false)
-    private String correo;
-    @Column(name = "clave",length = 500,nullable = false)
+    @Column(length = 200)
     private String clave;
+    private Boolean habilitado;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private List<RolUsuario> roles;
+
+    @Column(name = "nombres",length = 100,nullable = false)
+    private String nombres;
+    @Column(name = "apellidos",length = 150,nullable = false)
+    private String apellidos;
+    @Column(name = "correo",length = 150,nullable = false)
+    private String correo;
     @Column(name = "edad",nullable = false)
     private int edad;
     @Column(name = "telefono",nullable = false)
-    private int telefono;
-    @Column(name = "genero",nullable = false)
+    private Long telefono;
+    @Column(name = "genero",length = 100,nullable = false)
     private String genero;
-    @ManyToOne
-    @JoinColumn(name = "idRolUsuario")
-    private RolUsuario rolUsuario;
+
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String nombres, String apellidos, String correo, String clave, int edad, int telefono, String genero, RolUsuario rolUsuario) {
+    public Usuario(Long idUsuario, String nombreUsuario, String clave, Boolean habilitado, List<RolUsuario> roles, String nombres, String apellidos, String correo, int edad, Long telefono, String genero) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
+        this.clave = clave;
+        this.habilitado = habilitado;
+        this.roles = roles;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
-        this.clave = clave;
         this.edad = edad;
         this.telefono = telefono;
         this.genero = genero;
-        this.rolUsuario = rolUsuario;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombreUsuario() {
@@ -51,21 +66,30 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public RolUsuario getRolUsuario() {
-        return rolUsuario;
+    public String getClave() {
+        return clave;
     }
 
-    public void setRolUsuario(RolUsuario rolUsuario) {
-        this.rolUsuario = rolUsuario;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Boolean getHabilitado() {
+        return habilitado;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setHabilitado(Boolean habilitado) {
+        this.habilitado = habilitado;
     }
+
+    public List<RolUsuario> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RolUsuario> roles) {
+        this.roles = roles;
+    }
+
 
 
     public String getNombres() {
@@ -92,14 +116,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public int getEdad() {
         return edad;
     }
@@ -108,11 +124,11 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public int getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
@@ -123,5 +139,4 @@ public class Usuario {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-
 }

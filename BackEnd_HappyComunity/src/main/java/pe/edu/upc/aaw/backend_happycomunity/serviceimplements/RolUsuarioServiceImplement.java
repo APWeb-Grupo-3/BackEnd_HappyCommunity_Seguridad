@@ -22,7 +22,8 @@ public class RolUsuarioServiceImplement implements IRolUsuarioService {
     }
 
     @Override
-    public void delete(int idRolUsuario) {
+    public void delete(Long idRolUsuario) {
         ruR.deleteById(idRolUsuario);
     }
+
 }

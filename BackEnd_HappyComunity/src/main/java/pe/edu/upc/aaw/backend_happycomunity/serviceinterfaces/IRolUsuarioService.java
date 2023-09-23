@@ -7,6 +7,6 @@ import java.util.List;
 public interface IRolUsuarioService {
     public void insert(RolUsuario rolUsuario);
     public List<RolUsuario> list();
-    public void delete(int idRolUsuario);
+    public void delete(Long idRolUsuario);
 }
 

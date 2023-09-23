@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.aaw.backend_happycomunity.entities.RolUsuario;
 
 @Repository
-public interface IRolUsuarioRepository extends JpaRepository<RolUsuario,Integer> {
+public interface IRolUsuarioRepository extends JpaRepository<RolUsuario,Long> {
 
 }

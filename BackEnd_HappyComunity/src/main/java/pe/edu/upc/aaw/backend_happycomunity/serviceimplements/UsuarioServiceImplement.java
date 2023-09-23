@@ -24,8 +24,12 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
 
     @Override
-    public void delete(int idUsuario) {
+    public void delete(Long idUsuario) {
         uR.deleteById(idUsuario);
+    }
+    @Override
+    public List<String[]> findVecinosWithoutDebt() {
+        return uR.findVecinosWithoutDebt();
     }
 
 }
