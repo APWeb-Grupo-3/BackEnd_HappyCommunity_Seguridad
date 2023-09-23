@@ -8,4 +8,5 @@ public interface IDocumentoPagoService {
     public void insert(DocumentoPago documentoPago);
     public List<DocumentoPago>list();
     public void delete(int idDocumentoPago);
+
 }

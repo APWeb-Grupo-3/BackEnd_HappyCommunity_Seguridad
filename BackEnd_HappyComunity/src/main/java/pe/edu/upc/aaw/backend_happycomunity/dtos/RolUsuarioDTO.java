@@ -1,36 +1,33 @@
 package pe.edu.upc.aaw.backend_happycomunity.dtos;
 
-
-import javax.persistence.Column;
+import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 
 public class RolUsuarioDTO {
+    private Long idRolUsuario;
+    private String rol;
+    private UsuarioDTO usuario;
 
-    private int idRolUsuario;
-
-    private String nombreTipo;
-    private String descripcion;
-
-    public int getIdRolUsuario() {
+    public Long getIdRolUsuario() {
         return idRolUsuario;
     }
 
-    public void setIdRolUsuario(int idRolUsuario) {
+    public void setIdRolUsuario(Long idRolUsuario) {
         this.idRolUsuario = idRolUsuario;
     }
 
-    public String getNombreTipo() {
-        return nombreTipo;
+    public String getRol() {
+        return rol;
     }
 
-    public void setNombreTipo(String nombreTipo) {
-        this.nombreTipo = nombreTipo;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public UsuarioDTO getUsuario() {
+        return usuario;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
     }
 }

@@ -2,13 +2,16 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.DocumentoPagoDTO;
+import pe.edu.upc.aaw.backend_happycomunity.dtos.Reporte1DTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.backend_happycomunity.entities.DocumentoPago;
 import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.IDocumentoPagoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,4 +44,6 @@ public class DocumentoPagoController {
         DocumentoPago d=m.map(dto,DocumentoPago.class);
         dS.insert(d);
     }
+
+
 }

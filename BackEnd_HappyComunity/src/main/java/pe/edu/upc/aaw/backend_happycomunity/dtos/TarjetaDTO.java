@@ -8,16 +8,17 @@ import java.time.LocalDate;
 public class TarjetaDTO {
     private int idTarjeta;
     private String tipoTarjeta;
-    private int numeroTarjeta;
+    private Long numeroTarjeta;
     private LocalDate fechaVencimiento;
     private int codigoSeguridad;
-    private Usuario usuario;
+    private UsuarioDTO usuario;
 
-    public Usuario getUsuario() {
+
+    public UsuarioDTO getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
 
@@ -37,11 +38,11 @@ public class TarjetaDTO {
         this.tipoTarjeta = tipoTarjeta;
     }
 
-    public int getNumeroTarjeta() {
+    public Long getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
-    public void setNumeroTarjeta(int numeroTarjeta) {
+    public void setNumeroTarjeta(Long numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
 

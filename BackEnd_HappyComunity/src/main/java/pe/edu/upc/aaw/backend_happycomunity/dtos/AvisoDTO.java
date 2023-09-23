@@ -8,7 +8,7 @@ public class AvisoDTO {
     private int idAviso;
     private String titulo;
     private String descripcion;
-    private Usuario usuario;
+    private Long usuario;
     private Condominio condominio;
 
     public int getIdAviso() {
@@ -35,11 +35,11 @@ public class AvisoDTO {
         this.descripcion = descripcion;
     }
 
-    public Usuario getUsuario() {
+    public Long getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Long usuario) {
         this.usuario = usuario;
     }
 

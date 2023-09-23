@@ -1,51 +1,53 @@
 package pe.edu.upc.aaw.backend_happycomunity.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "RolUsuario")
-public class RolUsuario {
+@Table(name = "RolUsuario",uniqueConstraints = { @UniqueConstraint(columnNames = { "usuario_id", "rol" }) })
+public class RolUsuario implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRolUsuario;
+    private Long idRolUsuario;
 
-    @Column(name = "nombreTipo",length = 150,nullable = false)
-    private String nombreTipo;
-    @Column(name = "descripcion",length = 400,nullable = true)
-    private String descripcion;
+    @Column(name = "rol",length = 150,nullable = false)
+    private String rol;
+    @ManyToOne
+    @JoinColumn(name="usuario_id",nullable = false)
+    private Usuario usuario;
 
     public RolUsuario() {
     }
 
-    public RolUsuario(int idRolUsuario, String nombreTipo, String descripcion) {
+    public RolUsuario(Long idRolUsuario, String rol, Usuario usuario) {
         this.idRolUsuario = idRolUsuario;
-        this.nombreTipo = nombreTipo;
-        this.descripcion = descripcion;
+        this.rol = rol;
+        this.usuario = usuario;
     }
 
-    public int getIdRolUsuario() {
+    public Long getIdRolUsuario() {
         return idRolUsuario;
     }
 
-    public void setIdRolUsuario(int idRolUsuario) {
+    public void setIdRolUsuario(Long idRolUsuario) {
         this.idRolUsuario = idRolUsuario;
     }
 
-    public String getNombreTipo() {
-        return nombreTipo;
+    public String getRol() {
+        return rol;
     }
 
-    public void setNombreTipo(String nombreTipo) {
-        this.nombreTipo = nombreTipo;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
-
 }

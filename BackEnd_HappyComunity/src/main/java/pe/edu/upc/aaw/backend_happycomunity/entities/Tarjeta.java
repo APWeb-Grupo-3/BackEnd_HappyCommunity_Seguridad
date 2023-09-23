@@ -11,7 +11,7 @@ public class Tarjeta {
     @Column(name = "tipoTarjeta", length = 50, nullable = false)
     private String tipoTarjeta;
     @Column(name = "numeroTarjeta", nullable = false)
-    private int numeroTarjeta;
+    private Long numeroTarjeta;
     @Column(name = "fechaVencimiento",nullable = false)
     private LocalDate fechaVencimiento;
     @Column(name = "codigoSeguridad", nullable = false)
@@ -24,7 +24,7 @@ public class Tarjeta {
     public Tarjeta() {
     }
 
-    public Tarjeta(int idTarjeta, String tipoTarjeta, int numeroTarjeta, LocalDate fechaVencimiento, int codigoSeguridad, Usuario usuario) {
+    public Tarjeta(int idTarjeta, String tipoTarjeta, Long numeroTarjeta, LocalDate fechaVencimiento, int codigoSeguridad, Usuario usuario) {
         this.idTarjeta = idTarjeta;
         this.tipoTarjeta = tipoTarjeta;
         this.numeroTarjeta = numeroTarjeta;
@@ -49,11 +49,11 @@ public class Tarjeta {
         this.tipoTarjeta = tipoTarjeta;
     }
 
-    public int getNumeroTarjeta() {
+    public Long getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
-    public void setNumeroTarjeta(int numeroTarjeta) {
+    public void setNumeroTarjeta(Long numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
 

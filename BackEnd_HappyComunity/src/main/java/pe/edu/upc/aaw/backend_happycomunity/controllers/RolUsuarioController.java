@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.RolUsuarioDTO;
 import pe.edu.upc.aaw.backend_happycomunity.entities.RolUsuario;
@@ -15,13 +16,14 @@ import java.util.stream.Collectors;
 public class RolUsuarioController {
     @Autowired
     private IRolUsuarioService ruS;
-
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @PostMapping
     public void registrar(@RequestBody RolUsuarioDTO dto){
         ModelMapper m=new ModelMapper();
         RolUsuario tu=m.map(dto, RolUsuario.class);
         ruS.insert(tu);
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @GetMapping
     public List<RolUsuarioDTO>listar(){
         return ruS.list().stream().map(x->{
@@ -29,10 +31,12 @@ public class RolUsuarioController {
                 return m.map(x, RolUsuarioDTO.class);
             }).collect(Collectors.toList());
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id){
+    public void eliminar(@PathVariable("id") Long id){
         ruS.delete(id);
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @PutMapping
     public void modificar(@RequestBody RolUsuarioDTO dto){
         ModelMapper m=new ModelMapper();

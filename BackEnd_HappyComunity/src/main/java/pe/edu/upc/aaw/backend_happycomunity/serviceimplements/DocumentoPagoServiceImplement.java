@@ -27,5 +27,7 @@ public class DocumentoPagoServiceImplement implements IDocumentoPagoService {
     public void delete(int idDocumentoPago) {
         dR.deleteById(idDocumentoPago);
     }
+
+
     //HU28: Visualizar pagos pendientes (vecino)
 }
