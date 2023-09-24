@@ -10,8 +10,4 @@ import java.util.List;
 @Repository
 public interface IDocumentoPagoRepository extends JpaRepository<DocumentoPago,Integer> {
 
-
-
-    //HU28: Visualizar pagos pendientes (vecino)
-
 }
