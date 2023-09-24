@@ -11,4 +11,6 @@ public interface IUsuarioService {
 
     public List<String[]>findVecinosWithoutDebt();
 
+    public List<String[]>findVecinosWithDebt();
+
 }

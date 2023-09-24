@@ -3,9 +3,9 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.Reporte1DTO;
+import pe.edu.upc.aaw.backend_happycomunity.dtos.Reporte3DTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 import pe.edu.upc.aaw.backend_happycomunity.serviceinterfaces.IUsuarioService;
@@ -54,6 +54,20 @@ public class UsuarioController {
         List<Reporte1DTO>listaDTO=new ArrayList<>();
         for(String[] data:lista){
             Reporte1DTO dto=new Reporte1DTO();
+            dto.setApellidos(data[0]);
+            dto.setNombres(data[1]);
+            dto.setEstado(data[2]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @GetMapping("/reporte3")
+    public List<Reporte3DTO>visualizarVecinosConDeuda(){
+        List<String[]>lista=uS.findVecinosWithDebt();
+        List<Reporte3DTO>listaDTO= new ArrayList<>();
+        for(String[] data:lista){
+            Reporte3DTO dto=new Reporte3DTO();
             dto.setApellidos(data[0]);
             dto.setNombres(data[1]);
             dto.setEstado(data[2]);

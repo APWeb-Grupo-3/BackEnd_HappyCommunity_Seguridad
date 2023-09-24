@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.MensajeDTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.TarjetaDTO;
@@ -18,6 +19,8 @@ public class MensajeController {
 
     @Autowired
     private IMensajeService mS;
+
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @PostMapping
     public void registrar(@RequestBody MensajeDTO dto){
         ModelMapper m = new ModelMapper();
@@ -25,6 +28,7 @@ public class MensajeController {
         mS.insert(e);
     }
 
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @GetMapping
     public List<MensajeDTO> listar(){
         return mS.list().stream().map(x->{

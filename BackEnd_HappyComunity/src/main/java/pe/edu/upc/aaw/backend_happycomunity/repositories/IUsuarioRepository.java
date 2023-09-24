@@ -43,4 +43,19 @@ public interface IUsuarioRepository extends JpaRepository<Usuario,Long> {
             " where dp.estado='Pagado'\n" +
             " )tabla ",nativeQuery = true)
     public List<String[]> findVecinosWithoutDebt();
+
+    @Query(value ="SELECT apellidos, nombres, CASE\n" +
+            " WHEN estado = 'Deuda' THEN 'Vecino con deuda'\n" +
+            " END AS \"Estado\" FROM\n" +
+            " (\n" +
+            " SELECT DISTINCT u.id_usuario,u.apellidos,\n" +
+            " u.nombres,dp.estado\n" +
+            " FROM documento_pago dp\n" +
+            " INNER JOIN usuario u\n" +
+            " ON dp.id_receptor = u.id_usuario\n" +
+            " WHERE dp.estado = 'Deuda'\n" +
+            " ) AS Tabla ", nativeQuery = true)
+    public List<String[]>findVecinosWithDebt();
+
+
 }
