@@ -21,12 +21,14 @@ public class DocumentoPagoController {
     @Autowired
     private IDocumentoPagoService dS;
     //HU26: Registrar documento de pago
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PostMapping
     public void registrar(@RequestBody DocumentoPagoDTO dto){
         ModelMapper m=new ModelMapper();
         DocumentoPago d=m.map(dto,DocumentoPago.class);
         dS.insert(d);
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping
     public List<DocumentoPagoDTO>listar(){
         return dS.list().stream().map(x->{
@@ -34,10 +36,12 @@ public class DocumentoPagoController {
             return m.map(x,DocumentoPagoDTO.class);
         }).collect(Collectors.toList());
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         dS.delete(id);
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PutMapping
     public void modificar(@RequestBody DocumentoPagoDTO dto){
         ModelMapper m=new ModelMapper();

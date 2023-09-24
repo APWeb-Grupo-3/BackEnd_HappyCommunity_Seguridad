@@ -3,6 +3,8 @@ package pe.edu.upc.aaw.backend_happycomunity.dtos;
 import pe.edu.upc.aaw.backend_happycomunity.entities.Condominio;
 import pe.edu.upc.aaw.backend_happycomunity.entities.Usuario;
 
+import java.time.LocalDate;
+
 public class AvisoDTO {
 
     private int idAviso;
@@ -10,7 +12,7 @@ public class AvisoDTO {
     private String descripcion;
     private UsuarioDTO usuario;
     private Condominio condominio;
-
+    private LocalDate fechaPublicacion;
     public int getIdAviso() {
         return idAviso;
     }
@@ -49,6 +51,11 @@ public class AvisoDTO {
 
     public void setCondominio(Condominio condominio) {
         this.condominio = condominio;
+    }
+
+    public LocalDate getFechaPublicacion() { return fechaPublicacion;}
+
+    public void setFechaPublicacion(LocalDate fechaPublicacion) { this.fechaPublicacion = fechaPublicacion;
     }
 }
 

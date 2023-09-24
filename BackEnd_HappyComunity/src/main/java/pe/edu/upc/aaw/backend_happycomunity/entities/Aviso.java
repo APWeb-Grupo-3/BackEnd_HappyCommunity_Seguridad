@@ -1,6 +1,8 @@
 package pe.edu.upc.aaw.backend_happycomunity.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "Aviso")
 public class Aviso {
@@ -11,6 +13,8 @@ public class Aviso {
     private String titulo;
     @Column(name = "descripcion",length = 200,nullable = false)
     private String descripcion;
+    @Column(name = "fechaPublicacion",nullable = false)
+    private LocalDate fechaPublicacion;
     @ManyToOne
     @JoinColumn(name = "usuario")
     private Usuario usuario;
@@ -21,12 +25,21 @@ public class Aviso {
     public Aviso() {
     }
 
-    public Aviso(int idAviso, String titulo, String descripcion, Usuario usuario, Condominio condominio) {
+    public Aviso(int idAviso, String titulo, String descripcion, LocalDate fechaPublicacion, Usuario usuario, Condominio condominio) {
         this.idAviso = idAviso;
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.fechaPublicacion=fechaPublicacion;
         this.usuario = usuario;
         this.condominio = condominio;
+    }
+
+    public LocalDate getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(LocalDate fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
     }
 
     public int getIdAviso() {

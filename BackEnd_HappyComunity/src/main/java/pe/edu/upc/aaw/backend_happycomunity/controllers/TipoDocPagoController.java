@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.DocumentoPagoDTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.TipoDocPagoDTO;
@@ -19,12 +20,14 @@ public class TipoDocPagoController {
     @Autowired
     private ITipoDocPagoService tS;
     //HU27: Registrar tipo documento de pago
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PostMapping
     public void registrar(@RequestBody TipoDocPagoDTO dto){
         ModelMapper m=new ModelMapper();
         TipoDocPago t=m.map(dto,TipoDocPago.class);
         tS.insert(t);
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping
     public List<TipoDocPagoDTO> listar(){
         return tS.list().stream().map(x->{
@@ -32,10 +35,12 @@ public class TipoDocPagoController {
             return m.map(x,TipoDocPagoDTO.class);
         }).collect(Collectors.toList());
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         tS.delete(id);
     }
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PutMapping
     public void modificar(@RequestBody TipoDocPagoDTO dto){
         ModelMapper m=new ModelMapper();

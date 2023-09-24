@@ -28,4 +28,9 @@ public class AvisoServiceImplement implements IAvisoService {
     public void delete(int idAviso) {
         aR.deleteById(idAviso);
     }
+
+    @Override
+    public List<String[]> quantityAnnouncementPerMonth() {
+        return aR.quantityAnnouncementPerMonth();
+    }
 }
