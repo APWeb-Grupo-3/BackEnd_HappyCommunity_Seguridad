@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.backend_happycomunity.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.backend_happycomunity.entities.DocumentoPago;
 import pe.edu.upc.aaw.backend_happycomunity.repositories.IDocumentoPagoRepository;
@@ -26,6 +27,25 @@ public class DocumentoPagoServiceImplement implements IDocumentoPagoService {
     @Override
     public void delete(int idDocumentoPago) {
         dR.deleteById(idDocumentoPago);
+    }
+
+    //HU44	Visualizar el mes con mayor deuda
+    @Override
+    public List<Object[]> MesMayorDeuda() {
+        return dR.MesMayorDeuda();
+    }
+    /*
+//HU45	Visualizar el monto total de deudas por cada mes
+    @Override
+    public List<Object[]> MesDeuda() {
+        return dR.MesDeuda();
+    }
+
+     */
+
+    @Override
+    public DocumentoPago listarId(int IdDocumentoPago) {
+        return dR.findById(IdDocumentoPago).orElse(new DocumentoPago());
     }
 
 

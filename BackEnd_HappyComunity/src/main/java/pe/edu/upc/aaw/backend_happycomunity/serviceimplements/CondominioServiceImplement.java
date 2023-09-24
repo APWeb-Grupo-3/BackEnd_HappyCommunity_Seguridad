@@ -27,4 +27,10 @@ public class CondominioServiceImplement implements ICondominioService {
     public void delete(int idCondominio) {
         dR.deleteById(idCondominio);
     }
+
+
+    @Override
+    public Condominio listarId(int IdCondominio) {
+        return dR.findById(IdCondominio).orElse(new Condominio());
+    }
 }
