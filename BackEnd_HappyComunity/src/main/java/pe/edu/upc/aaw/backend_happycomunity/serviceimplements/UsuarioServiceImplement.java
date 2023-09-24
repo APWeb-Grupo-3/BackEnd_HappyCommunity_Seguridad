@@ -32,4 +32,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return uR.findVecinosWithoutDebt();
     }
 
+    @Override
+    public List<String[]> findVecinosWithDebt() {
+        return uR.findVecinosWithDebt();
+    }
+
 }
