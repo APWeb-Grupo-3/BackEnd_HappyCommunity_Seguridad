@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'HappyCommunity'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_03B02C811D764740B599E8282FD751D7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6A71B7E4D3B0457CBE1C9D0BEB3C36C2 }}
           package: '*.jar'
