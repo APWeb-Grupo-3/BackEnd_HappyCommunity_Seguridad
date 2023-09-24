@@ -14,8 +14,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/tiposervicio")
 public class TipoServicioController {
 
-
-
     @Autowired
     private ITipoServicioService tsS;
     @PostMapping

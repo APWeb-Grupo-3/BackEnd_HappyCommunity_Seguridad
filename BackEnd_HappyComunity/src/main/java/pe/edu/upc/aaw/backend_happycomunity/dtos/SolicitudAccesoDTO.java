@@ -10,7 +10,7 @@ public class SolicitudAccesoDTO {
     private int idSolicitudAcceso;
     private String estado;
     private Condominio condominio;
-    private Usuario usuario;
+    private UsuarioDTO usuario;
 
     public int getIdSolicitudAcceso() {
         return idSolicitudAcceso;
@@ -36,11 +36,11 @@ public class SolicitudAccesoDTO {
         this.condominio = condominio;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioDTO getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
 }

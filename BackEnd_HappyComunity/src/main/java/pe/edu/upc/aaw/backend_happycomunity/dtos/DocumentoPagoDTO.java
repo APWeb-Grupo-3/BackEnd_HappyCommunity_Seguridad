@@ -15,7 +15,7 @@ public class DocumentoPagoDTO {
     private double total;
     private String estado;
     //Foreign keys
-    private Usuario usuario;
+    private UsuarioDTO usuario;
 
     private TipoDocPago tipoDocPago;
 
@@ -76,11 +76,11 @@ public class DocumentoPagoDTO {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioDTO getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
 
