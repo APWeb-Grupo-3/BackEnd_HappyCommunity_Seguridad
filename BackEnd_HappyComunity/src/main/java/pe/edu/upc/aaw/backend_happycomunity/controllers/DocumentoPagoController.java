@@ -2,8 +2,10 @@ package pe.edu.upc.aaw.backend_happycomunity.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.backend_happycomunity.dtos.CondominioDTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.DocumentoPagoDTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.Reporte1DTO;
 import pe.edu.upc.aaw.backend_happycomunity.dtos.UsuarioDTO;
@@ -16,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/documentodepagos")
+@RequestMapping("/documentodepago")
 public class DocumentoPagoController {
     @Autowired
     private IDocumentoPagoService dS;
@@ -41,7 +43,8 @@ public class DocumentoPagoController {
     public void eliminar(@PathVariable("id")Integer id){
         dS.delete(id);
     }
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO') or hasAuthority('INVITADO')")
     @PutMapping
     public void modificar(@RequestBody DocumentoPagoDTO dto){
         ModelMapper m=new ModelMapper();
@@ -49,5 +52,22 @@ public class DocumentoPagoController {
         dS.insert(d);
     }
 
+    //HU44	Visualizar el mes con mayor deuda
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @GetMapping("/MesMayorDeuda")
+    public List<Object[]> MesMayorDeuda(){return dS.MesMayorDeuda();}
 
+    /*
+    //HU45	Visualizar el monto total de deudas por cada mes
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @GetMapping("/MesDeuda")
+    public List<Object[]> MesDeuda(){return dS.MesDeuda();}
+     */
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO')")
+    @GetMapping("/{id}")
+    public DocumentoPagoDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        DocumentoPagoDTO dto=m.map(dS.listarId(id),DocumentoPagoDTO.class);
+        return dto;
+    }
 }

@@ -10,4 +10,7 @@ public interface ICondominioService {
     public List<Condominio> list();
     public void delete(int idCondominio);
 
+
+    public Condominio listarId(int IdCondominio);
+
 }

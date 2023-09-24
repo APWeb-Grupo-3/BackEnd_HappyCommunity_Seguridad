@@ -21,4 +21,9 @@ public class PlanConvivenciaServiceImplement implements IPlanConvivenciaService 
     public List<PlanConvivencia> list(){
         return pR.findAll();
     }
+
+    @Override
+    public PlanConvivencia listarId(int IdPlanConvivencia) {
+        return pR.findById(IdPlanConvivencia).orElse(new PlanConvivencia());
+    }
 }
