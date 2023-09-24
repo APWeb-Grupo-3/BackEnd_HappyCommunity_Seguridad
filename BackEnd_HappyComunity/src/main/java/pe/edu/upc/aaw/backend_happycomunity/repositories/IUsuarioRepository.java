@@ -30,14 +30,17 @@ public interface IUsuarioRepository extends JpaRepository<Usuario,Long> {
 
 
     //HU30: Visualizar vecinos con pagos al día
-    @Query(value="select u.apellidos,\n" +
+    @Query(value="select apellidos,nombres,CASE estado\n" +
+            " WHEN 'Pagado' THEN 'Al día'\n" +
+            " END as \"Estado\" from\n" +
+            " (\n" +
+            " select distinct(u.id_usuario),u.apellidos,\n" +
             " u.nombres,\n" +
-            " CASE dp.estado \n" +
-            " \tWHEN 'pagado' THEN 'Al día'\n" +
-            " END as \"Estado\"\n" +
+            " dp.estado\n" +
             " from documento_pago dp\n" +
             " inner join usuario u\n" +
             " on dp.id_receptor=u.id_usuario\n" +
-            " where dp.estado='pagado'",nativeQuery = true)
+            " where dp.estado='Pagado'\n" +
+            " )tabla ",nativeQuery = true)
     public List<String[]> findVecinosWithoutDebt();
 }

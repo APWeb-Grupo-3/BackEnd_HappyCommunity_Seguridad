@@ -8,7 +8,7 @@ public class MensajeDTO {
     private int idMensaje;
     private String titulo;
     private String descripcion;
-    private Usuario usuario;
+    private UsuarioDTO usuario;
     private int idReceptor;
 
     public int getIdReceptor() {
@@ -43,11 +43,11 @@ public class MensajeDTO {
         this.descripcion = descripcion;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioDTO getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
 }
