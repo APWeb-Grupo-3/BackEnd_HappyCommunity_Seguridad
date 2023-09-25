@@ -34,14 +34,12 @@ public class DocumentoPagoServiceImplement implements IDocumentoPagoService {
     public List<Object[]> MesMayorDeuda() {
         return dR.MesMayorDeuda();
     }
-    /*
-//HU45	Visualizar el monto total de deudas por cada mes
+
     @Override
-    public List<Object[]> MesDeuda() {
-        return dR.MesDeuda();
+    public List<Object[]> DeudaMes() {
+        return dR.DeudaMes();
     }
 
-     */
 
     @Override
     public DocumentoPago listarId(int IdDocumentoPago) {
