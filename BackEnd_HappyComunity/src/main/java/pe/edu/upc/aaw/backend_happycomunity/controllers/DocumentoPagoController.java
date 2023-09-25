@@ -57,12 +57,9 @@ public class DocumentoPagoController {
     @GetMapping("/MesMayorDeuda")
     public List<Object[]> MesMayorDeuda(){return dS.MesMayorDeuda();}
 
-    /*
-    //HU45	Visualizar el monto total de deudas por cada mes
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    @GetMapping("/MesDeuda")
-    public List<Object[]> MesDeuda(){return dS.MesDeuda();}
-     */
+    @GetMapping("/DeudaMes")
+    public List<Object[]> DeudaMes(){return dS.DeudaMes();}
     @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('VECINO')")
     @GetMapping("/{id}")
     public DocumentoPagoDTO listarId(@PathVariable("id") Integer id) {
