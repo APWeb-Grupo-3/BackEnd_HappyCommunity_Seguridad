@@ -4,12 +4,14 @@ import pe.edu.upc.aaw.backend_happycomunity.entities.DocumentoPago;
 import pe.edu.upc.aaw.backend_happycomunity.entities.Servicio;
 import pe.edu.upc.aaw.backend_happycomunity.entities.TipoServicio;
 
+import javax.persistence.*;
+
 public class DetalleDTO {
 
 
-
     private int idDetalle;
-    private int subtotalDetalle;
+
+    private String subtotalDetalle;
 
     private DocumentoPago documentoPago;
 
@@ -23,11 +25,11 @@ public class DetalleDTO {
         this.idDetalle = idDetalle;
     }
 
-    public int getSubtotalDetalle() {
+    public String getSubtotalDetalle() {
         return subtotalDetalle;
     }
 
-    public void setSubtotalDetalle(int subtotalDetalle) {
+    public void setSubtotalDetalle(String subtotalDetalle) {
         this.subtotalDetalle = subtotalDetalle;
     }
 
