@@ -13,7 +13,7 @@ public class DetalleDTO {
 
     private String subtotalDetalle;
 
-    private DocumentoPago documentoPago;
+    private DocumentoPagoDTO documentoPago;
 
     private Servicio servicio;
 
@@ -33,11 +33,11 @@ public class DetalleDTO {
         this.subtotalDetalle = subtotalDetalle;
     }
 
-    public DocumentoPago getDocumentoPago() {
+    public DocumentoPagoDTO getDocumentoPago() {
         return documentoPago;
     }
 
-    public void setDocumentoPago(DocumentoPago documentoPago) {
+    public void setDocumentoPago(DocumentoPagoDTO documentoPago) {
         this.documentoPago = documentoPago;
     }
 
